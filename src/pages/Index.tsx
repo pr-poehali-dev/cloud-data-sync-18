@@ -3,6 +3,7 @@ import Header from "@/components/Header"
 import RotatingTextAccent from "@/components/RotatingTextAccent"
 import Footer from "@/components/Footer"
 import HeroTextOverlay from "@/components/HeroTextOverlay"
+import DyuritChat from "@/components/DyuritChat"
 
 const CDN_BASE = "https://cdn.poehali.dev/templates/meet-jack"
 
@@ -75,6 +76,7 @@ const Index = () => {
         </section>
       </div>
       <Footer />
+      <DyuritChat />
     </div>
   )
 }
