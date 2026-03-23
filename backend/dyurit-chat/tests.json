@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Дьюрит отвечает на вопрос",
+      "method": "POST",
+      "path": "/",
+      "body": { "message": "Привет Дьюрит, как тебя зовут?" },
+      "expectedStatus": 200,
+      "expectedBody": { "reply": "string" },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
