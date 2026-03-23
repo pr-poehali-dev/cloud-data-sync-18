@@ -1,56 +1,50 @@
-import { Suspense, useState } from "react"
+import { Suspense, useState, Component, ReactNode } from "react"
 import Spline from "@splinetool/react-spline"
+
+class SplineErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: ReactNode; fallback: ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  render() {
+    if (this.state.hasError) return this.props.fallback
+    return this.props.children
+  }
+}
+
+function SplineFallback() {
+  return (
+    <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse at 70% 50%, hsl(210 100% 56% / 0.15) 0%, transparent 70%)",
+        }}
+      />
+    </div>
+  )
+}
 
 export default function SplineScene() {
   const [isLoading, setIsLoading] = useState(true)
-  const [hasError, setHasError] = useState(false)
-
-  const handleLoad = () => {
-    console.log("Spline scene loaded successfully")
-    setIsLoading(false)
-    setHasError(false)
-  }
-
-  const handleError = (error: unknown) => {
-    console.log("Spline scene failed to load:", error)
-    setIsLoading(false)
-    setHasError(true)
-  }
 
   return (
     <div className="absolute inset-0 w-full h-full bg-background">
-      {isLoading && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="text-foreground text-center">
-            <div className="text-lg mb-2">Загрузка 3D сцены...</div>
-            <div className="text-sm opacity-70">Пожалуйста, подождите</div>
-          </div>
-        </div>
-      )}
+      {isLoading && <SplineFallback />}
 
-      {hasError && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="text-foreground text-center">
-            <div className="text-lg mb-2">3D сцена недоступна</div>
-            <div className="text-sm opacity-70">Не удалось загрузить 3D модель</div>
-          </div>
-        </div>
-      )}
-
-      {!hasError && (
-        <Suspense fallback={null}>
+      <SplineErrorBoundary fallback={<SplineFallback />}>
+        <Suspense fallback={<SplineFallback />}>
           <Spline
             scene="https://prod.spline.design/l8gr6AhxxCqDIdBx/scene.splinecode"
-            onLoad={handleLoad}
-            onError={handleError}
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "transparent",
-            }}
+            onLoad={() => setIsLoading(false)}
+            onError={() => setIsLoading(false)}
+            style={{ width: "100%", height: "100%", background: "transparent" }}
           />
         </Suspense>
-      )}
+      </SplineErrorBoundary>
     </div>
   )
 }
