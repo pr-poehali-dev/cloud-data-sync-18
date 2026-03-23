@@ -43,31 +43,31 @@ const Index = () => {
           <div className="px-6 md:px-40">
             <div className="flex items-center justify-center mb-3.5 md:gap-11">
               <div className="flex flex-col items-center">
-                <img src={`${CDN_BASE}/jack-front.png`} alt="Макс спереди" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
+                <img src={`${CDN_BASE}/jack-front.png`} alt="Дьюрит — вид спереди" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
               </div>
 
               <div className="flex flex-col items-center">
-                <img src={`${CDN_BASE}/jack-side.png`} alt="Макс сбоку" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
+                <img src={`${CDN_BASE}/jack-side.png`} alt="Дьюрит — вид сбоку" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
               </div>
 
               <div className="flex flex-col items-center">
-                <img src={`${CDN_BASE}/jack-back.png`} alt="Макс сзади" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
+                <img src={`${CDN_BASE}/jack-back.png`} alt="Дьюрит — вид сзади" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
               </div>
             </div>
 
             <div className="flex flex-col gap-2 max-w-5xl">
               <div className="flex items-center gap-4">
                 <span className="text-accent font-mono text-sm">Имя</span>
-                <span className="text-foreground font-mono text-sm">Макс</span>
+                <span className="text-foreground font-mono text-sm">Дьюрит</span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-accent font-mono text-sm">Вид</span>
-                <span className="text-foreground font-mono text-sm">Инопланетянин с планеты Флэпджек</span>
+                <span className="text-accent font-mono text-sm">Тип</span>
+                <span className="text-foreground font-mono text-sm">Голосовой ИИ-ассистент, вдохновлённый Джарвисом</span>
               </div>
               <div className="flex items-start gap-4">
                 <span className="text-accent font-mono text-sm">Характер</span>
                 <span className="text-foreground font-mono text-sm">
-                  Любопытный, гибкий, немного расслабленный - но острый, когда дело касается баз данных и организации информации.
+                  Чёткий, вежливый, всегда готов помочь — обрабатывает голосовые команды с молниеносной скоростью и точностью.
                 </span>
               </div>
             </div>

@@ -17,7 +17,7 @@ export default function Header() {
               className="bg-primary text-primary-foreground rounded-full px-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
               style={{ paddingLeft: "24px", paddingRight: "16px" }}
             >
-              Связаться с Максом <ArrowUpRight className="ml-1 h-4 w-4" />
+              Активировать Дьюрит <ArrowUpRight className="ml-1 h-4 w-4" />
             </Button>
           </a>
         </div>
